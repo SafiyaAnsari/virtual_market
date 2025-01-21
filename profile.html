@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="shortcut icon" type="image/jpg" href="/favicon.webp" >
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .profile-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-container h1 {
+            font-size: 22px;
+            margin: 10px 0;
+        }
+
+        .profile-container p {
+            color: #666;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #3498db;
+            margin: 0 8px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #2980b9;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .sec {
+            flex: 1 1 100%;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            max-width: 300px;
+        }
+
+        .sec a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .sec:nth-child(2) {
+            background-color: #e74c3c;
+        }
+
+        .sec:nth-child(3) {
+            background-color: #2ecc71;
+        }
+
+        .sec:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+            .sec {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture">
+        <h1>Seller</h1>
+        <h1>StoreName</h1>
+        <p>+91XXXXXXXXXX | XYZ@gmail.com</p>
+        <div class="social-links">
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+        <div class="container">
+            <div class="sec"><a href="./catalogue/catalogue.html" target="_blank">Catalog</a></div>
+            <div class="sec"><a href="./catalogue/inventory.html" >Inventory</a></div>
+            <div class="sec"><a href="./catalogue/profile_Analysis.html">Profile Analysis</a></div>
+        </div>
+    </div>
+</body>
+</html>
