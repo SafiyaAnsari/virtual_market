@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding</title>
+    <link rel="shortcut icon" type="image/jpg" href="/favicon.webp" >
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .login-img{
+            display: flex;
+            justify-content: center;
+        }
+        .login-img img{
+            width: 70%;
+            justify-self: center;
+        }
+        #login-form{
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            max-width: 500px;
+            border: 1px solid rgba(0, 0, 0, 0.247);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+           
+        }
+        .login-contain{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .login-contain input{
+            width: 70%;
+            height: 30px;
+            margin: 2%;
+            border: 1px solid rgba(0, 0, 0, 0.247);
+            background-color:rgba(76, 0, 130, 0.068);
+        }
+        .login-contain button{
+            width: 73%;
+            height: 40px;
+            margin: 2%;
+            background-color:#4591e3 ;
+            color:whitesmoke;
+            border: none;
+            border-radius: 6px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container" style="display: flex;flex-direction: row;">
+            <div class="login-img">
+                <img src="images/p1login3.jpg" alt="signin-img" >
+            </div>
+        
+        <form id="login-form">
+            <div class="login-contain">
+            <h3 style="font-size:40px;">Website</h3>
+            <input type="email" id="login-email"  placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+
+            <div class="signup">
+                <h3 style="color: rgba(0, 0, 0, 0.427);">Don't have any account?<a href="" style="color: #4591e3">Sign-up</a></h3>
+            </div>
+
+            </div>
+            
+        </form>
+        </div>
+
+    </div>
+    <script>
+        // Login
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            if(email==="safiyaansari932@gmail.com" && password==="111"){
+                window.location.href = "Homepage.html";
+            }
+            else{
+                alert("wrong email or password,try again!")
+            }
+        });
+    </script>
+
+    
+</body>
+</html>

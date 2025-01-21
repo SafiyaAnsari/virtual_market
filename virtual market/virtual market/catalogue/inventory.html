@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="/catalogue/inventory.css">
+    <link rel="shortcut icon" type="image/jpg" href="/favicon.webp" >
+</head>
+<body>
+    <header>
+        <h1>Inventory Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#catalogue">Catalogue Creation</a></li>
+                <li><a href="#bulk-upload">Bulk Upload</a></li>
+                <li><a href="#real-time">Real-Time Updates</a></li>
+                <li><a href="#inventory-publishing">Inventory Publishing</a></li>
+                <li><a href="#payment-report">Payment & Settlement Report</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="catalogue">
+            <h2>Catalogue Creation</h2>
+            <form id="catalogue-form">
+                <input type="text" placeholder="Item Name" required>
+                <input type="number" placeholder="Quantity" required>
+                <input type="text" placeholder="Price" required>
+                <button type="submit">Add to Catalogue</button>
+            </form>
+        </section>
+
+        <section id="bulk-upload">
+            <h2>Bulk Upload</h2>
+            <input type="file" id="file-input" accept=".csv">
+            <button id="upload-button">Upload</button>
+        </section>
+
+        <section id="real-time">
+            <h2>Real-Time Updates</h2>
+            <div id="updates"></div>
+        </section>
+
+        <section id="inventory-publishing">
+            <h2>Inventory Publishing</h2>
+            <button id="publish-button">Publish Inventory</button>
+        </section>
+
+        <section id="payment-report">
+            <h2>Payment & Settlement Report</h2>
+            <button id="report-button">Generate Report</button>
+            <div id="report-output"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Inventory Management System</p>
+    </footer>
+
+    <script src="/catalogue/inventory.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Market Dashboard</title>
+    <link rel="shortcut icon" type="image/jpg" href="/favicon.webp" >
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1c92d2;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #444;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #1c92d2;
+            padding-bottom: 5px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #1c92d2;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .nav a:hover {
+            background: #f2fcfe;
+            color: #1c92d2;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            color: #1c92d2;
+        }
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container {
+            position: relative;
+            margin: 20px auto;
+            width: 300px;
+        }
+
+        .review {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .review .stars {
+            color: #ff9800;
+            margin-left: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1c92d2;
+            box-shadow: 0 0 5px rgba(28, 146, 210, 0.5);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <a href="#sales">Sales Reports</a>
+        <a href="#analytics">Inventory Analytics</a>
+        <a href="#metrics">Performance Metrics</a>
+        <a href="#feedback">Customer Feedback</a>
+    </div>
+
+    <div class="container">
+        <h1>Reporting and Analytics</h1>
+
+        <!-- Revenue Card -->
+        <div class="card">
+            <h2>Total Revenue:</h2>
+            <h3 style="color: #1c92d2;">₹ 15,00000</h3>
+        </div>
+
+        <!-- Sales Reports -->
+        <div id="sales">
+            <h2>Sales Reports</h2>
+            <input type="text" id="filter" placeholder="Filter by Product..." oninput="filterSales()">
+            <table id="sales-report">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Sales</th>
+                        <th>Revenue</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sales data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="sales-chart"></canvas>
+        </div>
+
+        <!-- Inventory Analytics -->
+        <div id="analytics">
+            <h2>Inventory Analytics</h2>
+            <div class="card">
+                <h3>Total Inventory:</h3>
+                <p id="total-inventory" style="color: #1c92d2; font-weight: bold;">0</p>
+            </div>
+            <div class="card">
+                <h3>Low Stock Items:</h3>
+                <ul id="low-stock-list" style="color: #f44336; list-style: none; padding-left: 0;"></ul>
+            </div>
+            <div class="chart-container">
+                <canvas id="inventory-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div id="metrics">
+            <h2>Performance Metrics</h2>
+            <div class="card">
+                <h3>Top Selling Product:</h3>
+                <p id="top-selling" style="color: #4caf50;">N/A</p>
+            </div>
+            <div class="card">
+                <h3>Best Rated Product:</h3>
+                <p id="best-rated" style="color: #ff9800;">N/A</p>
+            </div>
+        </div>
+
+        <!-- Customer Feedback -->
+        <div id="feedback">
+            <h2>Customer Feedback</h2>
+            <div class="review">
+                <p>"Amazing quality products!"</p>
+                <span class="stars">★★★★★</span>
+            </div>
+            <div class="review">
+                <p>"Fast delivery and excellent service!"</p>
+                <span class="stars">★★★★☆</span>
+            </div>
+            <div class="review">
+                <p>"Could improve packaging."</p>
+                <span class="stars">★★★☆☆</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       // Sample data
+const salesData = [
+    { product: "Product A", sales: 150, revenue: 4500, date: "2023-10-01" },
+    { product: "Product B", sales: 200, revenue: 8000, date: "2023-10-02" },
+    { product: "Product C", sales: 100, revenue: 2000, date: "2023-10-03" },
+];
+
+const inventoryData = {
+    total: 500,
+    lowStockItems: ["Product D", "Product E", "Product F"],
+};
+
+// Populate Sales Report
+const salesTableBody = document.querySelector("#sales-report tbody");
+salesData.forEach(item => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${item.product}</td>
+        <td>${item.sales}</td>
+        <td>₹${item.revenue}</td> <!-- Change here -->
+        <td>${item.date}</td>
+    `;
+    salesTableBody.appendChild(row);
+});
+
+// Populate Inventory Analytics
+document.getElementById("total-inventory").textContent = inventoryData.total;
+const lowStockList = document.getElementById("low-stock-list");
+inventoryData.lowStockItems.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    lowStockList.appendChild(li);
+});
+
+// Filter Sales Data
+function filterSales() {
+    const filter = document.getElementById("filter").value.toLowerCase();
+    const rows = salesTableBody.querySelectorAll("tr");
+    rows.forEach(row => {
+        const product = row.querySelector("td:first-child").textContent.toLowerCase();
+        row.style.display = product.includes(filter) ? "" : "none";
+    });
+}
+
+// Sales Chart
+const ctx1 = document.getElementById('sales-chart').getContext('2d');
+new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: salesData.map(item => item.product),
+        datasets: [{
+            label: 'Revenue (₹)',  // Change here
+            data: salesData.map(item => item.revenue),
+            backgroundColor: ['#4caf50', '#2196f3', '#ff5722'],
+        }],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true } },
+    },
+});
+
+// Inventory Chart
+const ctx2 = document.getElementById('inventory-chart').getContext('2d');
+new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: inventoryData.lowStockItems,
+        datasets: [{
+            data: [5, 8, 10],
+            backgroundColor: ['#ff5722', '#ffc107', '#03a9f4'],
+        }],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+    },
+});
+
+
+    </script>
+</body>
+</html>
